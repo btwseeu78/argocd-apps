@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: alpha-apps
+  namespace: argocd
+spec:
+  project: root
+  source:
+    repoURL: https://github.com/btwseeu78/argocd-apps.git
+    targetRevision: master
+    path: helm
+    helm:
+      valueFiles:
+      - ../values/alpha/values.yaml
+  detination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false

@@ -1,0 +1,3 @@
+cluster:
+  imagePullSecrets:
+  - name: artifact-registry
