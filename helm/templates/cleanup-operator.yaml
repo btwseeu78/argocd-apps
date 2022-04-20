@@ -4,16 +4,17 @@ metadata:
   name: cleanup-operator
 spec:
   project: root
-  repourl: https://btwseeu78.github.io/kube-cleanup-operator/
-  targetRevision: 0.1.2
-  chart: kube-cleanup-operator
-  helm:
-    values: |
-      cleanup:
-        {{- if .Values.cluster.imagePullSecrets }}
-        imagePullSecrets:
-          {{- toYaml .Values.cluster.imagePullSecret | nindent 12}}
-        {{- end }}
+  source:
+    repourl: https://btwseeu78.github.io/kube-cleanup-operator/
+    targetRevision: 0.1.2
+    chart: kube-cleanup-operator
+    helm:
+      values: |
+        cleanup:
+          {{- if .Values.cluster.imagePullSecrets }}
+          imagePullSecrets:
+          {{- toYaml .Values.cluster.imagePullSecrets | nindent 10}}
+          {{- end }}
   destination:
     server: https://kubernetes.default.svc
     namespace: "default"
