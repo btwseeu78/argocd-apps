@@ -13,7 +13,7 @@ spec:
         cleanup:
           {{- if .Values.cluster.imagePullSecrets }}
           imagePullSecrets:
-          {{- toYaml .Values.cluster.imagePullSecrets | nindent 10}}
+            {{- toYaml .Values.cluster.imagePullSecrets | nindent 12}}
           {{- end }}
   destination:
     server: https://kubernetes.default.svc
