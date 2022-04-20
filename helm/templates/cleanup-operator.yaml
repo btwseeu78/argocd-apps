@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: cleanup-operator
 spec:
-  project: default
+  project: root
   repourl: https://btwseeu78.github.io/kube-cleanup-operator/
   targetRevision: 0.1.2
   chart: kube-cleanup-operator
